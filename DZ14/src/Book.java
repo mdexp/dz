@@ -1,23 +1,23 @@
-class Book {
-    String author;
-    String nameBook;
-    int year;
+public class Book {
+    public String title;
+    public String author;
+    public int year;
+    public int isbn;
+    public boolean isAvailable;
 
-    public void setBookInfo(String author, String nameBook, int year) {
+    public Book(String title, String author, int year, int isbn, boolean isAvailable) {
+        this.title = title;
         this.author = author;
-        this.nameBook = nameBook;
         this.year = year;
+        this.isbn = isbn;
+        this.isAvailable = isAvailable;
     }
 
-    public String getBookAuthor() {
-        return this.author;
+    public void getInfo() {
+        System.out.println("Це звичана книга \"" + author + "\" автора " + author + ". Читайте більше!");
     }
 
-    public String getBookName() {
-        return this.nameBook;
-    }
-
-    public int getBookYear() {
-        return this.year;
+    public void setIsAvailable(boolean isAvailable) {
+        this.isAvailable = isAvailable;
     }
 }

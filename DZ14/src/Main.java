@@ -1,57 +1,27 @@
 public class Main {
-
     public static void main(String[] args) {
 
-//  Завдання 1
-//#################################################################################################
+        FictionBook fictionBook_1 = new FictionBook("Title_1", "Author_1", "Genre_1", 1999, 94586934, true);
+        FictionBook fictionBook_2 = new FictionBook("Title_2", "Author_2", "Genre_2", 2001, 94586935, true);
+        EducationalBook educationalBook_1 = new EducationalBook("Title_3", "Author_3", "Math", "School", 2005, 94586938, true);
+        EducationalBook educationalBook_2 = new EducationalBook("Title_4", "Author_4", "History", "University", 2006, 94586939, true);
+
         Library library = new Library();
+        library.addBook(fictionBook_1);
+        library.addBook(fictionBook_2);
+        library.addBook(educationalBook_1);
+        library.addBook(educationalBook_2);
 
-        Book book1 = new Book();
-        book1.setBookInfo("Author_1", "Book_1", 2000);
-        Book book2 = new Book();
-        book2.setBookInfo("Author_2", "Book_2", 2001);
-        Book book3 = new Book();
-        book3.setBookInfo("Author_3", "Book_3", 2002);
+        Reader reader_1 = new Reader("Reader_1", 100);
+        Reader reader_2 = new Reader("Reader_2", 101);
 
-        library.addBook(book1);
-        library.addBook(book2);
-        library.addBook(book3);
-        System.out.println(library.countBooks() + " books in the library");
+        library.getAllBooksInfo();
 
-        library.dellBook(book3);
-        System.out.println(library.countBooks() + " books in the library after deleting");
+        System.out.println("Found " + library.getBooksByGenre("Genre_1").size() + " with genre \"Genre_1\"");
+        System.out.println("Found " + library.getBooksBySubject("Math").size() + " with subject \"Math\"");
 
-        Book find_book = library.findBook("Book_2");
-        System.out.println("Book_2 found; author: " + find_book.getBookAuthor() + "; year:" + find_book.getBookYear());
+        library.takeBookToReader(fictionBook_1, reader_1);
+        library.takeBookToReader(educationalBook_2, reader_2);
 
-
-//  Завдання 2
-//#################################################################################################
-        Bank bank = new Bank();
-        int accountId_1 = bank.createAccount();
-        int accountId_2 = bank.createAccount();
-        int accountId_3 = bank.createAccount();
-
-        bank.blockAccount(accountId_2);
-        bank.unBlockAccount(accountId_2);
-
-//  Завдання 3
-//#################################################################################################
-        Company company = new Company();
-
-        company.addEngineer("Engineer_1", 1000, "Department_1" );
-        company.addEngineer("Engineer_2", 2000, "Department_2" );
-        company.addEngineer("Engineer_3", 3000, "Department_3" );
-        company.addManager("Manager_1", 1000, "Department_1" );
-        company.addManager("Manager_2", 2000, "Department_2" );
-        company.addManager("Manager_3", 3000, "Department_3" );
-        System.out.println("Employees in company: " + company.getEmployeesCount());
-
-        company.removeEngineer("Engineer_1");
-        company.removeManager("Manager_1");
-        System.out.println("Employees in company after deleting: " + company.getEmployeesCount());
-
-        System.out.println("Common salary in company: " + company.getCommomSalary());
-        System.out.println("Average salary in company: " + company.getAvgSalary());
     }
 }
