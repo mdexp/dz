@@ -26,7 +26,7 @@ public class UI extends JFrame implements MouseMotionListener {
 
         try {
             backgroundImage = ImageIO.read(new File(backgroungPath));
-            if (false == ((backgroungPath.endsWith(".jpg")) || (backgroungPath.endsWith(".jpg")))){
+            if (false == ((backgroungPath.endsWith(".jpg")) || (backgroungPath.endsWith(".bmp")))){
                 throw new WrongImageFormatException("Input file has incorrect extension");
             }
         } catch (WrongImageFormatException e) {
