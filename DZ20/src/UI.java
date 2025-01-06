@@ -16,6 +16,7 @@ public class UI extends JFrame implements MouseMotionListener {
     private Image backgroundImage;
 
     UI() {
+        String backgroungPath = "src/background.mp3";
         setSize(500, 700);
         addMouseMotionListener(this);
         setLayout(null);
@@ -24,8 +25,15 @@ public class UI extends JFrame implements MouseMotionListener {
         add(label);
 
         try {
-            backgroundImage = ImageIO.read(new File("src/background.jpg"));
+            backgroundImage = ImageIO.read(new File(backgroungPath));
+            if (false == ((backgroungPath.endsWith(".jpg")) || (backgroungPath.endsWith(".jpg")))){
+                throw new WrongImageFormatException("Input file has incorrect extension");
+            }
+        } catch (WrongImageFormatException e) {
+            System.err.println("Error loading background image: " + e.getMessage());
         } catch (IOException e) {
+            System.err.println("Error loading background image: " + e.getMessage());
+        } catch (Exception e) {
             System.err.println("Error loading background image: " + e.getMessage());
         }
 
