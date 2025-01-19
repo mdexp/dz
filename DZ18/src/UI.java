@@ -22,8 +22,7 @@ public class UI extends JFrame implements MouseMotionListener {
         setSize(500, 700);
         addMouseMotionListener(this);
         setLayout(null);
-        label.setBounds(400, 620, 100, 50);
-        label.setBackground(Color.LIGHT_GRAY);
+
         add(label);
 
         JButton button = new JButton("Clean");
